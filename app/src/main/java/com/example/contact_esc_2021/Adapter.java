@@ -73,7 +73,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder>{
                         Intent intent = new Intent(Intent.ACTION_VIEW, smsUri);
                         intent.putExtra("address",contact.getPhoneNumber());
                         intent.putExtra("sms_body", "");
-                        intent.setType("vmd.android-dir/mms-sms");
+                        intent.setType("vnd.android-dir/mms-sms");
                         context.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                     }
                 });
@@ -128,7 +128,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder>{
         notifyDataSetChanged();
     }
 
-    @SuppressLint("Range")
     private static long getContactIDFromNumber(ContentResolver contactHelper, String number){
         Uri contactUri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI, Uri.encode(number));
 

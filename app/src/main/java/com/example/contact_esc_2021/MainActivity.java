@@ -69,11 +69,9 @@ public class MainActivity extends AppCompatActivity {
         PermissionListener permissionListener = new PermissionListener() {
             @Override
             public void onPermissionGranted() {
-                //연락처 데이터 받아오기
                 datalist.clear();
-                /* datalist = getContactList();
-                    다음시간
-                */
+                datalist = getContactList();
+
                 adapter = new Adapter(MainActivity.this, datalist);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 recyclerView.setAdapter(adapter);
